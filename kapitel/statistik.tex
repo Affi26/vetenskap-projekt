@@ -1,0 +1,290 @@
+
+\chapter{Statistik}
+
+
+\section{Vad statistik är}
+
+
+\section{Vad statistik inte är}
+
+
+\section{Statistik som ett verktyg}
+
+
+\section{Normalfördelningen}
+
+Normalfördelningen, även kallad Gaussfördelningen, är en kontinuerlig sannolikhetsfördelning som kännetecknas av sin klockformade kurva.
+Den beskrivs av två parametrar: medelvärdet $\mu$, som anger fördelningens centrum, och standardavvikelsen $\sigma$, som bestämmer spridningen.
+Täthetsfunktionen för en normalfördelning ges av:
+\begin{equation*}
+    f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)
+\end{equation*}
+Normalfördelningen är viktig inom statistik och sannolikhetsteori eftersom många naturliga fenomen approximativt följer denna fördelning enligt centrala gränsvärdessatsen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/normal_fordelning_1.png}
+    \caption{Normalfördelning med medelvärde $\mu$ och standardavvikelse $\sigma$.}
+\end{figure}
+\noindent
+En trevlig egenskap hos normalfördelningen är att 95\% av alla datapunkter kommer att ligga inom ungefär 2 standardavvikelser från medelvärdet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/normal_fordelning_2.png}
+    \caption{95\% av datat ligger inom ungefär 2 standardavvikelser från medelvärdet.}
+\end{figure}
+
+
+\section{Centrala gränsvärdessatsen}
+
+Den korta sammanfattningen av centrala gränsvärdessatsen (GVS) är att stickprovsmedelvärdet är normalfördelat. 
+
+\subsection{Empirisk demonstration}
+
+Vanligtvis introduceras GVS genom en massa matematiska formaliteter,
+vilka är bra att ha, men dom kan ibland skapa onödiga förvirringar.
+Låt oss därför börja med en empirisk demonstration av GVS.
+\newline\newline
+\textbf{Exempel: kasta tärning}
+\newline\newline
+Vi kommer att generera ett slumpmässigt stickprov med 10 tärningskast, 
+och beräkna medelvärdet och standardavvikelsen för stickprovet.
+\newline\newline
+Sedan kommer vi att upprepa proceduren och samla in fler stickprov med 10 tärningskast. 
+Slutligen kommer vi att rita fördelningen av medelvärdena vi får från varje stickprov med hjälp av ett histogram. 
+Vi kommer att se att fördelningen är ungefär normalfördelad.
+\newline\newline
+Vi antar en rättvis tärning med siffrorna 1--6, där varje sida har en sannolikhet på 1/6.
+\begin{table}[H]
+\centering
+\begin{tabular}{c c}
+\hline
+Kast \# & Siffra \\
+\hline
+1 & 4 \\
+2 & 2 \\
+3 & 6 \\
+4 & 3 \\
+5 & 5 \\
+6 & 1 \\
+7 & 2 \\
+8 & 4 \\
+9 & 3 \\
+10 & 6 \\
+\hline
+Medelvärde & 3.6 \\
+Standardavvikelse & 1.68 \\
+\hline
+\end{tabular}
+\caption{Exempel på ett stickprov av 10 tärningskast med medelvärde och standardavvikelse.}
+\end{table}
+\noindent
+Låt oss säga att vi har utfört 10 stycken experiment, och fått följande resultat:
+\begin{table}[H]
+\centering
+\begin{tabular}{cc}
+\hline
+Stickprov \# & Medelvärde \\ 
+\hline
+1  & 3.4 \\
+2  & 3.7 \\
+3  & 3.1 \\
+4  & 3.9 \\
+5  & 3.5 \\
+6  & 3.2 \\
+7  & 3.8 \\
+8  & 3.6 \\
+9  & 3.3 \\
+10 & 3.7 \\
+\hline
+\end{tabular}
+\caption{Stickprovsmedelvärden från 10 stickprov med $n=10$ tärningskast per stickprov.}
+\end{table}
+\noindent
+Då kommer frekvensfördelningen för stickprovsmedelvärdet att se ut på följande sätt:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/GVS_1.png}
+    \caption{Frekvensfördelningen för stickprovsmedelvärdet från 10 stickprov, med $n=10$ tärningskast per stickprov.}
+\end{figure}
+\noindent
+Fördelningen ser ju ganska jämn ut för tillfället.
+Men låt oss nu säga att vi tar flera och flera stickprov.
+Enligt gränsvärdessatsen kommer den här fördelningen att gå mot en normalfördelning då mängden stickprov ökar.
+Det ser ut så här:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/GVS_2.png}
+    \caption{Frekvensfördelningen för stickprovsmedelvärdet då mängden stickprov ökar.}
+\end{figure}
+\noindent
+Här uttrycks frekvensen relativt till mängden stickprov, för att också visualisera teoretiska normalfördelningarna bättre.
+\newline\newline
+Enligt våra empiriska stickprov så har stickprovsmedelvärdet störst sannolikhet att anta värdet 3.5,
+vilket verkar stämma väl överens med det teoretiska väntevärdet för en 6-sidig tärning:
+\begin{align*}
+    \mathbb{E}[X] &= \sum_{k=1}^{6} k \cdot P(X=k) \\[0.3cm]
+                  &= 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + 3 \cdot \frac{1}{6} + 4 \cdot \frac{1}{6} + 5 \cdot \frac{1}{6} + 6 \cdot \frac{1}{6} \\[0.3cm]
+                  &= \frac{1 + 2 + 3 + 4 + 5 + 6}{6} \\[0.3cm]
+                  &= \frac{21}{6} \\[0.3cm]
+                  &= 3.5 
+\end{align*}
+
+\subsection{Matematiskt teorem}
+
+För att inte heller göra teorinördar besvikna, så kan vi förstås också presentera det officiella teoremet för GVS.
+Det går ungefär nånting såhär:
+\newline\newline
+Centrala gränsvärdessatsen säger att för en följd av oberoende och identiskt fördelade slumpvariabler \( X_1, X_2, \ldots, X_n \) med ändligt medelvärde \(\mu = \mathbb{E}[X_i]\) och ändlig varians \(\sigma^2 = \mathrm{Var}(X_i)\) gäller att
+\begin{equation*}
+    S_n = \frac{1}{n} \sum_{i=1}^n X_i
+\end{equation*}
+är stickprovsmedelvärdet, och då konvergerar den normaliserade summan
+\begin{equation*}
+    Z_n = \frac{\sqrt{n}(S_n - \mu)}{\sigma}
+\end{equation*}
+i fördelning mot en standardnormalfördelning \( \mathcal{N}(0,1) \), det vill säga
+\begin{equation*}
+    Z_n \xrightarrow{d} \mathcal{N}(0,1) \quad \text{när} \quad n \to \infty.
+\end{equation*}
+Detta innebär att för stora \(n\) är fördelningen av \(S_n\) ungefär normalfördelad med medelvärde \(\mu\) och standardavvikelse \(\sigma / \sqrt{n}\).
+\newline\newline
+Notera även att omskriving av $Z_n$ kan göras så att:
+\begin{equation*}
+    Z_n = \frac{S_n - \mu}{\sigma / \sqrt{n}}
+\end{equation*}
+Detta är ju en standardiseringsmetod för en slumpvariabel $S_n$.
+Standardisering av en slumpvariabel görs genom att subtrahera dess medelvärde, och dividera med dess standardavvikelse.
+Det implicerar därav också att slumpvariabeln $S_n$ är normalfördelad:
+\begin{equation*}
+    S_n \sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})
+\end{equation*}
+Stickprovsmedelvärdets standardavvikelse $\frac{\sigma}{\sqrt{n}}$ brukar också kallas för standardfel (eng. standard error, SE).
+Stickprovsmedelvärdets fördelning kan således uppskattas med stickprovets egna medelvärde och standardavvikelse:
+\begin{align*}
+    \mu_{S_n} &\approx \frac{1}{n} \sum_{i=1}^n X_i \\[0.3cm]
+    \sigma_{S_n} &\approx \frac{\sigma_X}{\sqrt{n}}
+\end{align*}
+Med andra ord, om vi har en mätning av ett normalfördelat värde, som ges av stickprovets medelvärde samt standardfel, \enquote{mean $\pm$ SE}, så kan vi räkna stickprovets standardavvikelse:
+\begin{equation*}
+    SD = SE \cdot \sqrt{n}
+\end{equation*}
+Därav kan vi uppskatta intervallet där 95\% av datapunkterna från ett stickprov faller:
+\begin{equation*}
+    95\% \text{ av datat} \approx [\mu - 2\sigma \ , \ \mu + 2\sigma]
+\end{equation*}
+
+
+\section{Statistisk signifikans}
+
+Ordet \enquote{signifikant} (eng. significant) används överallt inom forskningslitteratur 
+för att kommunicera att ett resultat anses vara tillräckligt pålitligt eller avvikande från slumpmässig variation för att förtjäna uppmärksamhet.
+\newline\newline
+Inom vardagligt språk uppfattas väl ordet \enquote{signifikant} som någonting med praktisk betydelse eller nytta.
+Men den stora skillnaden är att ordet \enquote{signifikant} i kontexten av forskning faktiskt implicerar en betydelse som härstammar från statistik, och har inte egentligen nånting att göra med praktisk betydelse eller nytta.
+\newline\newline
+Ordet \enquote{signifikant} implicerar det som kallas statistisk signifikans.
+Statistisk signifikans hör till området \enquote{hypotestestning}\dots
+\newline\newline
+Det här blir ganska snabbt tekniskt djupgående, eller hur?
+Så låt oss se på ett exempel för att klargöra betydelsen.
+\newline\newline
+\textbf{Exempel: kroppslängd mellan två grupper av personer}
+\newline\newline
+Du har fått en uppfattning om att 12-åringar har samma kroppslängd som 18-åringar.
+Du kan alltså formulera detta som en hypotes, betecknat $H_0$:
+\begin{equation*}
+    H_0: \text{Det är ingen skillnad på kroppslängden mellan 12-åringar och 18-åringar.}
+\end{equation*}
+Baserat på min erfarenhet av att observera 12-åringar och 18-åringar ute i världen så skulle jag tro att din hypotes är felaktig.
+Min hypotes är att det finns en skillnad på kroppslängden mellan 12-åringar och 18-åringar.
+\newline\newline
+Vi kan testa dessa två hypoteser mot varandra:
+\begin{align*}
+    & H_0: \text{Det är ingen skillnad på kroppslängden mellan 12-åringar och 18-åringar.} \\[0.3cm]
+    & H_1: \text{Det finns en skillnad på kroppslängden mellan 12-åringar och 18-åringar.}
+\end{align*}
+För att göra en matematisk formulering av hypoteserna, kan vi använda medellängderna $\mu_{12}$ och $\mu_{18}$ för respektive grupp:
+\begin{align*}
+    & H_0: \mu_{12} = \mu_{18} \\[0.3cm]
+    & H_1: \mu_{12} \ne \mu_{18} \\[0.3cm]
+\end{align*}
+Vi kan också använda skillnaden $\delta = \mu_{12} - \mu_{18}$ som en egen variabel istället:
+\begin{align*}
+    & H_0: \delta = \mu_{12} - \mu_{18} = 0 \\[0.3cm]
+    & H_1: \delta = \mu_{12} - \mu_{18} \ne 0 \\[0.3cm]
+\end{align*}
+Låt oss då göra en empirisk undersökning av detta.
+Vi samlar 100 stycken 12-åringar, mäter deras längd, och beräknar ett medelvärde $\mu_{12}$ och en standardavvikelse $\sigma_{12}$.
+Likadant gör vi för 100 stycken 18-åringar, där vi får ett medelvärde $\mu_{18}$ och en standardavvikelse $\sigma_{18}$.
+\newline\newline
+Låt oss säga att vi får följande frekvensfördelningar av längden för dom två stickproven med 12-åringar och 18-åringar:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{bilder/signifikans_1.png}
+    \caption{Frekvensfördelningen för stickprovet av längden hos 100 stycken 12-åringar, med $\mu_{12} = 151.0$ cm och $\sigma_{12} = 2.1$ cm.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{bilder/signifikans_2.png}
+    \caption{Frekvensfördelningen för stickprovet av längden hos 100 stycken 18-åringar, med $\mu_{18} = 169.9$ cm och $\sigma_{18} = 1.9$ cm.}
+\end{figure}
+\noindent
+Om vi nu kombinerar båda fördelningarna och ser på fördelningen för skillnaden $\delta = \mu_{12} - \mu_{18}$ så ser det ut såhär:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{bilder/signifikans_3.png}
+    \caption{Frekvensfördelningen för skillnaden $\delta$ i längderna, med $\mu_\delta = -18.9$ cm och $\sigma_\delta = 2.9$ cm.}
+\end{figure}
+\noindent
+Enligt den här grafen så skulle skillnaden vara negativ, $\delta = \mu_{12} - \mu_{18} < 0$, vilket ju betyder att skillnaden inte är noll.
+Alltså att vår hypotes $H_1$ skulle vara sann, och $H_0$ inte stämmer.
+\newline\newline
+Men hur säkra kan vi vara på att $H_1$ är sann?
+Om $H_0$ vore sann, alltså att $\delta = 0$, så kunde fördelningen för $\delta$ vara centrerad vid 0 istället:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{bilder/signifikans_4.png}
+    \caption{Frekvensfördelningen för skillnaden $\delta$ i längderna, då $\mu_\delta = 0$.}
+\end{figure}
+\noindent
+Nu kommer vi till det kritiska läget där vi kan definiera statistisk signifikans.
+Ifall vi antar att $H_0$ är sann, och $\delta$ borde vara centrerad kring 0,
+så kan vi beräkna sannolikheten $p$ att observera vårt resultat, med skillnaden $\delta$ centrerad kring $-20$.
+Om denna sannolikhet $p$ är mindre än en arbiträr signifikansnivå $\alpha$, så att $p < \alpha$, så säger vi att vårt observerade resultat är statistiskt signifikant.
+\newline\newline
+Om vi då väljer $\alpha$ att vara litet, och får $p < \alpha$, så kan vi säga att det är en väldigt liten chans ($p$) att vårt resultat producerades av rena slumpen,
+så vi kan dra slutsatsen att observationen reflekterar en \enquote{riktig} skillnad eller effekt.
+\newline\newline
+Det är vanligt att välja $\alpha = 0.05$, alltså 5\%, men det är viktigt att komma ihåg att valet av $\alpha$ är totalt arbiträrt.
+Valet av $\alpha$ har egentligen att göra med en mera generell filosofi kring hypotestestning och två fenomen som heter typ I och typ II fel.
+Mera om det senare.
+\newline\newline
+Om vi nu då återgår till vår längdskillnad $\delta$.
+Vi kan uppskatta våra fördelningar som normalfördelningar, 
+den första som en $\mathcal{N}(-18.9, 2.9)$ fördelning och den andra som en $\mathcal{N}(0, 2.9)$ fördelning.
+Då ser det ut såhär om vi visualiserar båda två i samma diagram:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{bilder/signifikans_5.png}
+    \caption{Normalfördelningarna av $\delta$, för båda hypoteserna $H_0$ och $H_1$.}
+\end{figure}
+\noindent
+Nu antar vi att det är normalfördelningen för $H_0$ som gäller.
+Alltså att $\mu_\delta = 0$.
+Då beräknar vi sannolikheten att få ett värde $\delta = -18.9$ under täthetsfunktionen för $\mathcal{N}(0, 2.9)$:
+\begin{align*}
+    p
+    &= P(\mu_\delta = -18.9 | \mu_\delta = 0) \\[0.3cm]
+    &= \int_{-18.9 - 0.1}^{-18.9 + 0.1} f(x) \ dx \\[0.3cm]
+    &= \int_{-18.9 - 0.1}^{-18.9 + 0.1} \ \frac{1}{2.9\sqrt{2\pi}} \exp\left( -\frac{(x - 0)^2}{2\cdot 2.9^2} \right) dx \\[0.3cm]
+    &\approx 1.66 \cdot 10^{-11}
+\end{align*}
+Om vi väljer $\alpha = 0.05$, så ser vi att $p < \alpha$.
+Så vi kan säga att vår observation för $\delta$ är statistiskt signifikant, och det är mycket osannolikt att vi skulle observera en skillnad på $\delta = -18.9$, ifall $\delta = 0$ faktiskt gäller.
+Vår slutsats blir att $H_0$ sannolikt är fel, och att $H_1$ stämmer.
+Det finns en statistiskt signifikant skillnad i längden mellan 12-åringar och 18-åringar.
+\newline\newline
+En sista detalj som är viktig att komma ihåg med statistisk signifikans och hypotestestning.
+Vi beräknar inte sannolikheterna att hypoteserna är sanna, det vill säga $P(H_0 \text{ stämmer})$ och $P(H_1 \text{ stämmer})$.
+Vi beräknar sannolikheten för den observation vi gör, ifall vi antar att $H_0$ stämmer, det vill säga $P(\text{observation } | H_0 \text{ stämmer})$.

@@ -1,0 +1,29 @@
+# Ignore everything
+*
+
+# Keep LaTeX source and output and related files
+!*.tex
+!*.pdf
+!*.bib
+!README.md
+!.gitignore
+
+
+# Keep directories
+!bilder/
+!drawio/
+!kapitel/
+
+# Allow recursion into allowed directories
+!bilder/**
+!drawio/**
+!kapitel/**
+
+# Ignore latex artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.synctex*
+*-blx.bib

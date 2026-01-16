@@ -1,0 +1,175 @@
+\chapter{Biokemi \& Fysiologi}
+
+Det här kapitlet ger inblick i några viktiga teoretiska koncept och definitioner inom biokemi och fysiologi.
+Att ha en grundförståelse för dessa koncept gör det lättare att hänga med senare, när vi kommer att gå igenom och se på konkreta exempel ur forskningslitteratur.
+
+\section{Energi \& massa}
+
+
+\section{Reaktionshastighet}
+
+Huruvida ett system befinner sig i kemisk jämvikt beror på om tidskonstanterna för de styrande kemiska reaktionerna är korta jämfört med de tidsskalor över vilka systemets tillstånd (temperatur och tryck) förändras.
+De hastigheter med vilka kemiska reaktioner fortskrider beror på reaktanternas koncentration, temperaturen samt på om någon katalysator är närvarande.
+Detta område kallas kemisk kinetik, och några av dess grundläggande samband kommer nu att översiktligt behandlas \cite{heywood_combustion_1988}.
+\newline\newline
+Många kemiska reaktioner av intresse inom biokemi kan beskrivas som binära reaktioner, där två reaktantmolekyler, M$_a$ och M$_b$, som har förmåga att reagera med varandra, kolliderar och bildar två produktmolekyler, M$_c$ och M$_d$:
+\[
+\ce{M_a + M_b <=> M_c + M_d}
+\]
+Lagen om massans verkan säger att den hastighet med vilken produkter bildas och den hastighet med vilken reaktanter förbrukas är proportionell mot produkten av koncentrationerna hos reaktanterna.
+Koncentrationen av varje kemisk art upphöjs till potensen av dess stökiometriska koefficient $v_i$:
+\[
+R = k \prod_i [M_i]^{v_i}
+\]
+För reaktionen ovan ges reaktionshastigheten $R^+$ i den positiva riktningen (+), från reaktanter till produkter, av:
+\[
+R^+ = -\frac{d[M_a]^+}{dt} = \frac{d[M_c]^+}{dt} = k^+[M_a][M_b]
+\]
+Om reaktionen även kan fortskrida i omvänd riktning (-), ges den negativa reaktionshastigheten $R^-$ av:
+
+\[
+R^- = -\frac{d[M_c]^-}{dt} = \frac{d[M_a]^-}{dt} = k^-[M_c][M_d]
+\]
+Storheterna $k^+$ och $k^-$ är hastighetskonstanterna i positiv respektive negativ riktning för denna reaktion.
+\textit{Nettohastigheten} med vilken produkter bildas eller reaktanter förbrukas ges därför av:
+\[
+R^+ - R^- =
+\frac{d[M_c]^+}{dt} - \frac{d[M_c]^-}{dt}
+=
+-\frac{d[M_a]^+}{dt} - \frac{d[M_a]^-}{dt}
+=
+k^+[M_a][M_b] - k^-[M_c][M_d]
+\]
+Hastighetskonstanterna $k$ följer vanligtvis Arrhenius form:
+\[
+k = A \exp\left(-\frac{E_A}{RT}\right)
+\]
+Här kallas $A$ frekvensfaktorn eller den preexponentiella faktorn och kan vara en (måttlig) funktion av temperaturen.
+Storheten $E_A$ är aktiveringsenergin.
+Boltzmannfaktorn $\exp(-E_A/RT)$ anger den andel av alla kollisioner som har en energi större än $E_A$, det vill säga tillräcklig energi för att reaktionen ska kunna äga rum.
+Det funktionella beroendet för $k$ på temperaturen $T$, samt konstanterna i Arrhenius-uttrycket, bestäms experimentellt.
+
+
+\section{Proteiner \& enzymer}
+
+\textbf{Proteiner} är stora biologiska molekyler uppbyggda av långa kedjor av aminosyror.
+De är en av de viktigaste byggstenarna i alla levande organismer.
+Proteinernas specifika funktion bestäms av deras tredimensionella struktur, som i sin tur beror på aminosyrasekvensen.
+Proteiner har många olika roller:
+\begin{itemize}
+    \item strukturella komponenter (t.ex. kollagen)
+    \item transport av molekyler (t.ex. hemoglobin)
+    \item signalöverföring (t.ex. receptorer)
+    \item reglering av genuttryck
+    \item katalys av kemiska reaktioner
+\end{itemize}
+\textbf{Enzymer} är en särskild typ av proteiner som fungerar som \emph{biologiska katalysatorer}.
+De ökar hastigheten på kemiska reaktioner utan att själva förbrukas.
+Enzymer gör detta genom att sänka reaktionens aktiveringsenergi, vilket gör att reaktionen kan ske snabbare vid biologiska temperaturer.
+\newline\newline
+Enzymer är oftast mycket specifika.
+Det innebär att ett enzym vanligtvis bara katalyserar en viss reaktion eller binder ett specifikt substrat.
+Denna specificitet är avgörande för att cellens biokemiska processer ska kunna regleras noggrant.
+
+\section{Fosforylering}
+
+Fosforylering är fästandet av en fosfatgrupp till en annan molekyl, och är en grundläggande reaktion som krävs för att många biokemiska processer ska fortskrida:
+\[
+M + P_i \rightarrow MP
+\]
+Fosfatgruppen kan härstamma från olika håll, men den vanligaste källan är en fosfatgrupp som har donerats från en ATP molekyl:
+\[
+M + ATP \rightarrow MP + ADP
+\]
+Beteckningen P$_i$ syftar mera exakt på en inorganisk fosfatgrupp.
+Det är en fosfatgrupp som har beteckningen PO$_4^{3-}$.
+
+
+\section{ATP-syntes}
+
+Cellens huvudsakliga \enquote{energi} tar formen av en fysisk molekyl som kallas ATP, adenosin trifosfat (eng. adenosine triphosphate).
+Alla har vi ju hört att mitokondrien är cellens kraftverk,
+vilket stämmer mycket riktigt eftersom mitokondrien ansvarar för den huvudsakliga syntetiseringen av ATP.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{bilder/ATP_structure.png}
+    \caption{ATP-molekylens struktur.}
+\end{figure}
+\noindent
+Namnet ATP syftar på en adenosinmolekyl som har tre stycken inorganiska fosfatgrupper, P$_i$, fastsatta i sig.
+Adenosinmolekylen kan maximalt ha tre fosfatgrupper kopplade på grund av de elektriska laddningarna och den energi som krävs för att bilda och bryta dessa bindningar.  
+Dessa fosfatgrupper är högt energirika, och det är frigörandet av energi vid brytning av bindningar mellan dem som driver många biologiska processer.
+\newline\newline
+ATP:s huvudsakliga roll är att donera fosfatgrupper till olika reaktioner.
+Om ATP donerar en fosfatgrupp så kallas den återstående molekylen för ADP, adenosin difosfat.
+Om ADP ytterligare donerar en fosfatgrupp så återstår AMP, adenosin monofosfat.
+Återigen kan AMP och ADP acceptera fosfatgrupper från olika reaktioner.
+Dom olika stadierna av ATP, ADP och AMP agerar som signaler för cellens energitillstånd.
+\newline\newline
+ATP syntetiseras genom en kombination av en ADP molekyl och en P$_i$ molekyl:
+\[
+ADP + P_i \rightarrow ATP
+\]
+På grund av den negativa elektriska laddningen hos fosfatgrupperna finns det en elektrostatisk repulsion mellan ADP och P$_i$.
+För att reaktionen ska kunna ske krävs därför en specifik kemisk miljö där molekylerna hålls i rätt orientering och där reaktionens övergångstillstånd stabiliseras.
+\newline\newline
+Detta sker med hjälp av ett enzym i mitokondrien som kallas \textbf{ATP-syntas}.
+ATP-syntasen är en roterande proteinmotor.
+När väteprotoner (H$^+$) strömmar genom en kanal i ATP-syntasen roterar en central del av enzymet, vilket orsakar konformationsförändringar i de katalytiska sätena.
+\newline\newline
+I dessa konformationslägen binds ADP och P$_i$ tätt i det katalytiska sätet, vilket skapar förhållanden där ATP kan bildas spontant.
+Ytterligare rotation leder till att ATP släpps fri från enzymet.
+För djupare läsning om ATP-syntasens struktur och funktion, se referenserna \cite{walker1998atp, leyva2003understanding,von2009essentials,lai2023structure}.
+\newline\newline
+Väteprotonerna som driver rotationen pumpas över mitokondriens inre membran av elektrontransportkedjan, där elektroner transporteras genom en serie proteinkomplex.
+
+
+\section{Elektrontransportkedjan}
+
+Elektrontransportkedjan förkortas ETC (eng. electron transport chain).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.1\textwidth]{bilder/placeholder.png}
+    \caption{\textcolor{red}{\textit{BILD HÄR}}}
+\end{figure}
+
+
+\section{TCA-cykeln}
+
+Elektronerna (e$^-$) och väteprotonerna (H$^+$) som levereras till ETC härstammar från TCA-cykeln.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/TCA-cykel.png}
+    \caption{TCA-cykeln. Enzymer är markerade i röd text. Elektronleverantörerna NADH och FADH$_2$ är markerade i grön text.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{bilder/TCA_1.png}
+    \caption{Substrat som passerar till TCA-cykeln.}
+\end{figure}
+
+
+\section{Randle-cykeln}
+
+Läs Hue et al. \cite{hue2009randle} för en sammanfattning.
+\newline\newline
+Långkedjiga fettsyror förkortas LCFA.
+Triglycerider förkortas TAG.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/randle_1.png}
+    \caption{Glukos-fettsyra-cykeln (Randle-cykeln) beskriver en ömsesidig inhibering mellan glukosoxidering och fettsyraoxidering, främst i skelettmuskel och hjärta. Bild återskapad från Hue et al. \cite{hue2009randle}.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/randle_2.png}
+    \caption{Beta-oxidering inhiberar glykolys. Bild återskapad från Hue et al. \cite{hue2009randle}.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{bilder/randle_3.png}
+    \caption{Glykolys inhiberar beta-oxidering. Bild återskapad från Hue et al. \cite{hue2009randle}.}
+\end{figure}
